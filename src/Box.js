@@ -12,22 +12,29 @@ class Box extends Component {
     }
 
     computefibonacci(nth){
-        if(nth === 0){
-            return 0;
+        var j = parseFloat(nth)
+        var i = parseInt(nth)
+        if( i-j === 0 && i >=0){
+            if(i === 0){
+                return 0;
+            } 
+
+            if(i === 1){
+                return 1;
+            } 
+            return this.computefibonacci(i-1) + this.computefibonacci(i-2);
         }
-        if(nth === 1){
-            return 1;
-        }
-        return this.computefibonacci(nth-1) + this.computefibonacci(nth-2)
+        return "That's not a positive integer Gerry"
+
     }
 
     handleChangeNth(event) {
-        this.setState({nth: event.target.value})
+        this.setState({nth: event.target.value});
     }
 
     handleOnClick() {
-        var nth_fibo = this.computefibonacci(this.state.nth)
-        this.setState({n_fibonacci : nth_fibo}, console.log(this.state.n_fibonacci))
+        var nth_fibo = this.computefibonacci(this.state.nth);
+        this.setState({n_fibonacci : nth_fibo}, console.log(this.state.n_fibonacci));
         return true
     }
 
